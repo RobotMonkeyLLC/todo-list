@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Note from './note'
+import Counter from './counter.jsx'
 
 function App() {
   const [list, setList] = useState([])
@@ -48,26 +49,7 @@ function App() {
             list={list} 
             setList={setList} 
             deleteItem={deleteItem}/>
-          {/* <div className='row'
-            onMouseEnter={(e) => {
-              setStyle({display: 'block'}) 
-            }}
-            onMouseLeave={
-              (e) => {
-                setStyle({display: 'none'})
-              }
-            }>
-            {list.map((task) => (
-                <div 
-                  className='row note' 
-                  key={task.id} 
-                  id={task.id}>
-                    <p className='col-10 note-text'>{task.text}</p>
-                    <button style={style} className='btn col-2' onClick={(e) => deleteItem(e)}>-</button>
-                </div>
-              ))
-            }
-          </div> */}
+          <Counter count={list.length}></Counter>
         </div>
       </div>
   )

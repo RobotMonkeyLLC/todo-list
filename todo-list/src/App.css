@@ -46,7 +46,13 @@ h1 {
 
 .note {
   padding: 0;
+}
+.btn {
+  display: none;
+}
 
+.note:hover > .btn{
+  display:block;
 }
 
 input[type="text"] {
@@ -67,6 +73,8 @@ li {
   text-align: start;
 }
 
-.btn {
-  display: none;
+.counter {
+  font-size: 1.5rem;
+  color: #b0b0b0;
+  text-align: start;
 }
