@@ -2,10 +2,17 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Note from './note'
 import Counter from './counter.jsx'
+import syncServer from './syncServer'
+import clearList from './clearList.jsx'
 
 function App() {
   const [list, setList] = useState([])
   const [style, setStyle] = useState({display: 'none'})
+  const [user, setUser] = useState('enrjon')
+
+  useEffect(() => {
+    syncServer(setList)
+  }, [])
 
   const addItem = () => {
     const input = document.querySelector('input')
@@ -33,6 +40,7 @@ function App() {
   return (
       <div >
         <h1>todos</h1>
+        <div className='user'>Current user: {user}</div>
         <div className="card col-12">
           <div className='row'>
             <input 
@@ -49,7 +57,11 @@ function App() {
             list={list} 
             setList={setList} 
             deleteItem={deleteItem}/>
-          <Counter count={list.length}></Counter>
+            <div className='row justify-content-between'>
+              <Counter count={list.length}/>
+              <button className='clear col-4' onClick={() => clearList()}>Clear List!</button>
+            </div>
+          
         </div>
       </div>
   )
