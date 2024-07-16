@@ -31,7 +31,7 @@ function App() {
   }
 
   return (
-      <div >
+      <div className='fluid-container row'>
         <h1>todos</h1>
         <div className="card col-12">
           <div className='row'>
@@ -40,10 +40,6 @@ function App() {
               type="text" 
               placeholder="Add a new task" 
               onKeyDown={(e) => {if (e.key === 'Enter') addItem()}}/>
-            <button 
-              type='submit' 
-              className='btn col-2' 
-              onClick={() => addItem()}>+</button>
           </div>
           <Note 
             list={list} 
